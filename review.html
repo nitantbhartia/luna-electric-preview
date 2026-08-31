@@ -14,33 +14,27 @@
       padding: 1.3rem 1.4rem 1.6rem;
       box-shadow: 0 10px 0 #1c1f23;
     }
-    .print-card h1 {
-      font-family: "Teko", "Arial Narrow", sans-serif;
-      font-size: 2.2rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      margin: 0 0 0.2rem;
-      line-height: 0.9;
-    }
+    .print-card .co { color: #1a1814; font-size: 2.1rem; }
     .print-card img { width: 220px; height: 220px; display: block; margin: 0.7rem auto; background: #fff; }
     .actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.9rem; }
     .actions button, .actions a {
       background: #1a1814; color: #f3ead0; text-decoration: none; border: 0;
       padding: 0.5rem 0.75rem; cursor: pointer;
-      font-family: "Teko", "Arial Narrow", sans-serif;
+      font-family: Khand, "Arial Narrow", sans-serif;
       font-size: 1.1rem; letter-spacing: 0.08em; text-transform: uppercase;
     }
     @media print {
-      .shop-bar, .actions, .lang { display: none !important; }
+      .plate, .actions, .lang { display: none !important; }
       body { background: #fff; }
       .print-card { box-shadow: none; margin: 0; }
     }
   </style>
 </head>
 <body>
-  <header class="shop-bar">
-    <div class="mark">Luna Electric
-      <small data-en="Printable review card" data-es="Tarjeta de reseña para imprimir">Printable review card</small>
+  <header class="plate" style="max-width:480px;margin:0.8rem auto 0;color:#efe6c9">
+    <div>
+      <p class="co">Luna Electric</p>
+      <p class="tag" data-en="Printable review card" data-es="Tarjeta de reseña para imprimir">Printable review card</p>
     </div>
     <nav class="lang" aria-label="Language">
       <button type="button" data-set="en" aria-pressed="true">EN</button>
@@ -48,15 +42,14 @@
     </nav>
   </header>
   <article class="print-card">
-    <p class="tag" data-en="Leave a review if the job was right" data-es="Deje una reseña si el trabajo quedó bien">Leave a review if the job was right</p>
-    <h1>Luna Electric</h1>
+    <p class="co">Luna Electric</p>
     <p>Josue Luna · Lic# 924030 · Spring Valley</p>
     <p><a class="plain" href="tel:+16199950726">619.995.0726</a> · 8607 Harness Street, Spring Valley Ca. 91977</p>
     <img src="review-qr.svg" width="220" height="220" alt="QR code to find Luna Electric on Google">
     <p data-en="Scan to find us on Google and leave a review." data-es="Escanee para encontrarnos en Google y dejar una reseña.">Scan to find us on Google and leave a review.</p>
     <div class="actions">
       <button type="button" id="print-card" data-en="Print this card" data-es="Imprimir esta tarjeta">Print this card</button>
-      <a href="index.html" data-en="Back to the job card" data-es="Volver a la tarjeta de trabajo">Back to the job card</a>
+      <a href="index.html" data-en="Back to the door" data-es="Volver a la puerta">Back to the door</a>
     </div>
   </article>
   <script src="script.js"></script>
