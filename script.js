@@ -1,7 +1,6 @@
 (function () {
   var PHONE = "+16199950726";
   var root = document.documentElement;
-
   function applyLang(lang) {
     root.setAttribute("data-lang", lang);
     root.lang = lang;
@@ -18,17 +17,12 @@
     });
     try { localStorage.setItem("luna-lang", lang); } catch (e) {}
   }
-
   document.querySelectorAll(".lang button").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      applyLang(btn.getAttribute("data-set"));
-    });
+    btn.addEventListener("click", function () { applyLang(btn.getAttribute("data-set")); });
   });
-
   var saved = null;
   try { saved = localStorage.getItem("luna-lang"); } catch (e) {}
   applyLang(saved === "es" ? "es" : "en");
-
   var form = document.getElementById("job-form");
   if (form) {
     form.addEventListener("submit", function (e) {
@@ -37,20 +31,12 @@
       var need = (form.elements.need.value || "").trim();
       var address = (form.elements.address.value || "").trim();
       var err = document.getElementById("job-err");
-      if (!name || !need || !address) {
-        if (err) err.hidden = false;
-        return;
-      }
+      if (!name || !need || !address) { if (err) err.hidden = false; return; }
       if (err) err.hidden = true;
-      var body =
-        "Luna Electric job\n" +
-        "Name: " + name + "\n" +
-        "Address: " + address + "\n" +
-        "Need: " + need;
+      var body = "Luna Electric job\nName: " + name + "\nAddress: " + address + "\nNeed: " + need;
       window.location.href = "sms:" + PHONE + "?body=" + encodeURIComponent(body);
     });
   }
-
   var printBtn = document.getElementById("print-card");
   if (printBtn) printBtn.addEventListener("click", function () { window.print(); });
 })();
