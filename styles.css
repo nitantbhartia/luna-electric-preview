@@ -1,6 +1,5 @@
-/* Luna Electric — Josue's job card in a load-center door.
-   Apprenticeship-to-owner breaker bank. Two named jobs, not a 3-tile grid. */
-@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Teko:wght@500;600;700&display=swap");
+/* Luna Electric — the page is a load-center door. Khand directory type, not a wave SMS slip. */
+@import url("https://fonts.googleapis.com/css2?family=Khand:wght@500;600;700&family=Share+Tech+Mono&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap");
 
 :root {
   --ink: #1a1814;
@@ -8,88 +7,35 @@
   --card-edge: #d9ccaa;
   --steel: #5c636b;
   --steel-dark: #3a4048;
-  --steel-light: #8a9199;
   --shop: #2b2e32;
   --stamp: #9a241c;
   --brass: #b08a3c;
-  --canary: #efe07a;
-  --canary-2: #e4c85a;
-  --on: #6e1c18;
   --mute: #5a564c;
 }
 
 * { box-sizing: border-box; }
-html { background: var(--shop); }
+html, body { margin: 0; background: var(--shop); color: var(--ink); }
 body {
-  margin: 0;
-  color: var(--ink);
+  font-family: "Source Serif 4", Georgia, serif;
+  line-height: 1.4;
+  min-height: 100vh;
   background:
     radial-gradient(ellipse at 50% 0, #3a3e44 0 28%, transparent 70%),
     repeating-linear-gradient(90deg, #2b2e32 0 11px, #272a2e 11px 12px);
-  font-family: "Source Serif 4", Georgia, serif;
-  line-height: 1.45;
 }
 
 a { color: inherit; }
 a.plain { text-underline-offset: 2px; }
 button, input, textarea { font-family: inherit; }
 
-.shop-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.45rem 1rem;
-  background: #1c1f23;
-  color: #efe6c9;
-  border-bottom: 3px solid var(--brass);
-}
-.shop-bar .mark {
-  font-family: "Teko", "Arial Narrow", sans-serif;
-  font-weight: 600;
-  font-size: 1.35rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.shop-bar .mark small {
-  display: block;
-  font-family: "Share Tech Mono", ui-monospace, monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.14em;
-  opacity: 0.8;
-  font-weight: 400;
-}
-.lang { display: flex; gap: 0.25rem; }
-.lang button {
-  background: transparent;
-  color: #efe6c9;
-  border: 1px solid #efe6c955;
-  padding: 0.15rem 0.45rem;
-  cursor: pointer;
-  font-family: "Share Tech Mono", ui-monospace, monospace;
-  font-size: 0.75rem;
-}
-.lang button[aria-pressed="true"] {
-  background: var(--brass);
-  color: #1c1f23;
-  border-color: var(--brass);
-}
-
-.bay {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 1.2rem 0.7rem 2.6rem;
-}
-
-.panel {
-  background:
-    linear-gradient(180deg, #6d747c 0%, var(--steel) 12%, #525960 92%, var(--steel-dark) 100%);
+.door {
+  max-width: 7.1in;
+  margin: 0.7rem auto 1.4rem;
+  background: linear-gradient(180deg, #6d747c 0%, var(--steel) 12%, #525960 92%, var(--steel-dark) 100%);
   border: 14px solid #1f2328;
   border-radius: 6px;
-  box-shadow:
-    inset 0 0 0 3px #9aa1a8,
-    0 18px 40px #0008;
-  padding: 1.1rem 1rem 1.2rem;
+  box-shadow: inset 0 0 0 3px #9aa1a8, 0 18px 40px #0008;
+  padding: 1rem 0.85rem 0.85rem;
   position: relative;
 }
 .screw {
@@ -97,8 +43,7 @@ button, input, textarea { font-family: inherit; }
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background:
-    radial-gradient(circle at 35% 30%, #e8d9a4, var(--brass) 45%, #6a5420);
+  background: radial-gradient(circle at 35% 30%, #e8d9a4, var(--brass) 45%, #6a5420);
   box-shadow: 0 0 0 2px #2a2e33;
 }
 .screw::after {
@@ -112,10 +57,51 @@ button, input, textarea { font-family: inherit; }
 .screw.bl { bottom: 10px; left: 10px; }
 .screw.br { bottom: 10px; right: 10px; }
 
-.door-grid {
+.plate {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin: 0 0.4rem 0.65rem;
+  color: #efe6c9;
+}
+.co {
+  margin: 0;
+  font-family: Khand, "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: 2.15rem;
+  line-height: 0.85;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.tag {
+  margin: 0.15rem 0 0;
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.lang { display: flex; gap: 0.25rem; }
+.lang button {
+  background: transparent;
+  color: #efe6c9;
+  border: 1px solid #efe6c955;
+  padding: 0.12rem 0.4rem;
+  cursor: pointer;
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+}
+.lang button[aria-pressed="true"] {
+  background: var(--brass);
+  color: #1c1f23;
+  border-color: var(--brass);
+}
+
+.face {
   display: grid;
-  grid-template-columns: 118px 1fr;
-  gap: 0.75rem;
+  grid-template-columns: 7.4rem 1fr;
+  gap: 0.65rem;
 }
 
 .bank {
@@ -124,261 +110,219 @@ button, input, textarea { font-family: inherit; }
   padding: 0.4rem 0.35rem 0.5rem;
   color: #d7dbe0;
 }
-.bank h2 {
+.bank-h {
   font-family: "Share Tech Mono", ui-monospace, monospace;
-  font-size: 0.62rem;
+  font-size: 0.58rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.3rem;
   color: #b7bcc2;
-  font-weight: 400;
 }
 .breaker {
   display: grid;
-  grid-template-columns: 22px 1fr;
-  gap: 0.3rem;
+  grid-template-columns: 20px 1fr;
+  gap: 0.28rem;
   align-items: center;
-  margin: 0.28rem 0;
+  margin: 0.24rem 0;
   font-family: "Share Tech Mono", ui-monospace, monospace;
-  font-size: 0.62rem;
+  font-size: 0.58rem;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   line-height: 1.15;
 }
 .toggle {
-  width: 22px;
-  height: 28px;
+  width: 20px;
+  height: 26px;
   background: #9aa0a6;
   border: 1px solid #1a1d21;
   border-radius: 2px;
-  position: relative;
   box-shadow: inset 0 -8px 0 #6d737a;
 }
-.toggle.on {
-  background: #c4a35a;
-  box-shadow: inset 0 8px 0 #8a6e28;
-}
-.toggle.main {
-  background: #8a2a24;
-  box-shadow: inset 0 8px 0 #5c1612;
-}
+.toggle.on { background: #c4a35a; box-shadow: inset 0 8px 0 #8a6e28; }
+.toggle.main { background: #8a2a24; box-shadow: inset 0 8px 0 #5c1612; }
 .pole2 {
-  margin-top: 0.55rem;
-  padding-top: 0.45rem;
+  margin-top: 0.5rem;
+  padding-top: 0.4rem;
   border-top: 1px dashed #5a6168;
 }
-.pole2 .job-name {
-  font-family: "Teko", "Arial Narrow", sans-serif;
-  font-size: 1.05rem;
+.job-name {
+  font-family: Khand, "Arial Narrow", sans-serif;
+  font-size: 0.98rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   line-height: 1;
   color: #f3ead0;
-}
-.pole2 .job-place {
   display: block;
-  font-size: 0.58rem;
+}
+.job-place {
+  display: block;
+  font-size: 0.55rem;
   color: #b7bcc2;
   letter-spacing: 0.08em;
 }
 
-.card {
+.window {
   background: var(--card);
   border: 1px solid var(--card-edge);
-  box-shadow: inset 0 0 0 6px #efe6c9, 0 0 0 3px #2a2e33;
-  padding: 0.85rem 0.9rem 1rem;
-  position: relative;
+  box-shadow: inset 0 0 0 5px #efe6c9, 0 0 0 3px #2a2e33;
+  padding: 0.7rem 0.75rem 0.8rem;
 }
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 4px;
-  border: 1px dashed #c9b98a;
-  pointer-events: none;
-}
-
-.card-head {
+.lic-row {
   display: flex;
-  justify-content: space-between;
-  gap: 0.6rem;
-  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
   border-bottom: 2px solid var(--ink);
-  padding-bottom: 0.55rem;
-  margin-bottom: 0.65rem;
-}
-.co {
-  font-family: "Teko", "Arial Narrow", sans-serif;
-  font-weight: 700;
-  font-size: 2.35rem;
-  line-height: 0.85;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  margin: 0;
-}
-.tag {
-  font-family: "Share Tech Mono", ui-monospace, monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--mute);
-  margin: 0.2rem 0 0;
-}
-.lic {
-  text-align: right;
-  font-family: "Share Tech Mono", ui-monospace, monospace;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .lic small {
   display: block;
-  font-size: 0.62rem;
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.58rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
-.lic .num {
-  font-family: "Teko", "Arial Narrow", sans-serif;
-  font-size: 2.1rem;
-  line-height: 0.9;
+.lic b {
+  font-family: Khand, "Arial Narrow", sans-serif;
+  font-size: 1.9rem;
+  line-height: 0.85;
+  font-weight: 700;
   letter-spacing: 0.04em;
-}
-
-.stamps {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-  margin: 0 0 0.8rem;
-  align-items: center;
 }
 .rubber {
   border: 3px solid var(--stamp);
   color: var(--stamp);
-  padding: 0.25rem 0.45rem 0.2rem;
+  padding: 0.2rem 0.4rem;
   transform: rotate(-3deg);
   font-family: "Share Tech Mono", ui-monospace, monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.06em;
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   line-height: 1.2;
-  background: #f3ead0cc;
 }
-.rubber b { display: block; font-size: 0.78rem; font-weight: 400; }
 .origin {
   border: 2px solid var(--ink);
-  padding: 0.2rem 0.45rem;
-  font-family: "Teko", "Arial Narrow", sans-serif;
-  font-size: 1.05rem;
+  padding: 0.15rem 0.4rem;
+  font-family: Khand, sans-serif;
+  font-size: 1rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.lede {
-  margin: 0 0 0.7rem;
-  font-size: 0.98rem;
+.dir { margin: 0 0 0.45rem; }
+.dir div { margin: 0 0 0.35rem; }
+.dir dt {
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mute);
 }
-.lede + .lede { margin-top: -0.25rem; }
+.dir dd { margin: 0.1rem 0 0; font-size: 0.9rem; }
 
-.work {
-  margin: 0.4rem 0 0.7rem;
+.circuits {
+  margin: 0 0 0.5rem;
   padding: 0;
   list-style: none;
 }
-.work li {
-  margin: 0 0 0.45rem;
-  padding-left: 0.7rem;
+.circuits li {
+  margin: 0 0 0.35rem;
+  padding-left: 0.6rem;
   border-left: 3px solid var(--brass);
 }
-.work b {
-  font-family: "Teko", "Arial Narrow", sans-serif;
-  font-size: 1.15rem;
+.circuits b {
+  font-family: Khand, sans-serif;
+  font-size: 1.05rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   display: block;
   font-weight: 600;
+  line-height: 1;
 }
-.work span { font-size: 0.92rem; }
+.circuits span { font-size: 0.86rem; }
 
 .office {
   font-family: "Share Tech Mono", ui-monospace, monospace;
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
   border-top: 1px solid var(--card-edge);
-  padding-top: 0.55rem;
+  padding-top: 0.4rem;
   display: grid;
-  gap: 0.15rem;
+  gap: 0.12rem;
+  margin-bottom: 0.5rem;
 }
-.office a { color: var(--ink); }
 
-.slip {
-  margin-top: 0.75rem;
-  background: var(--canary);
-  border: 1px solid var(--canary-2);
-  box-shadow: 3px 3px 0 #2a2e33;
-  padding: 0.7rem 0.75rem 0.8rem;
-  transform: rotate(-0.4deg);
+#job-form {
+  border-top: 1px dashed #c9b98a;
+  padding-top: 0.4rem;
+  display: grid;
+  gap: 0.12rem;
 }
-.slip h2 {
-  font-family: "Teko", "Arial Narrow", sans-serif;
-  font-size: 1.35rem;
+.job-h {
+  margin: 0 0 0.15rem;
+  font-family: Khand, sans-serif;
+  font-size: 1.15rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin: 0 0 0.45rem;
   font-weight: 600;
 }
-.slip label {
-  display: block;
+#job-form label {
   font-family: "Share Tech Mono", ui-monospace, monospace;
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin: 0.35rem 0 0.12rem;
 }
-.slip input, .slip textarea {
+#job-form input, #job-form textarea {
   width: 100%;
   border: 0;
   border-bottom: 1px solid #1a1814;
   background: transparent;
-  padding: 0.25rem 0;
+  padding: 0.18rem 0;
   font-family: "Share Tech Mono", ui-monospace, monospace;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
 }
-.slip textarea { min-height: 3.2rem; resize: vertical; }
-.slip button {
-  margin-top: 0.55rem;
+#job-form textarea { min-height: 2.4rem; resize: vertical; }
+#job-form button {
+  margin-top: 0.35rem;
   background: var(--ink);
-  color: var(--canary);
+  color: var(--card);
   border: 0;
-  padding: 0.45rem 0.7rem;
+  padding: 0.4rem 0.6rem;
   cursor: pointer;
-  font-family: "Teko", "Arial Narrow", sans-serif;
-  font-size: 1.15rem;
+  font-family: Khand, sans-serif;
+  font-size: 1.05rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-.hint {
-  font-size: 0.82rem;
-  margin: 0.4rem 0 0;
-  color: #3a3428;
-}
+.hint { font-size: 0.76rem; margin: 0.25rem 0 0; color: #3a3428; }
 #job-err { color: var(--stamp); font-weight: 600; }
 
-.foot {
+.sill {
   display: flex;
   justify-content: space-between;
-  gap: 0.6rem;
+  gap: 0.5rem;
   flex-wrap: wrap;
-  margin-top: 0.7rem;
+  margin-top: 0.55rem;
   font-family: "Share Tech Mono", ui-monospace, monospace;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #d7dbe0;
 }
-.foot a { color: #f3ead0; }
+.sill a { color: #f3ead0; }
 
 @media (max-width: 640px) {
-  .door-grid { grid-template-columns: 1fr; }
-  .bank { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 0.7rem; }
-  .bank h2 { grid-column: 1 / -1; }
-  .pole2 { border-top: 0; margin-top: 0; padding-top: 0; }
-  .co { font-size: 1.9rem; }
-  .lic .num { font-size: 1.7rem; }
-  .panel { border-width: 10px; padding: 1.3rem 0.7rem 0.9rem; }
+  .door { border-width: 10px; margin: 0.4rem 0.4rem 1rem; padding: 1.15rem 0.55rem 0.7rem; }
+  .face { grid-template-columns: 1fr; }
+  .bank { display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem 0.55rem; }
+  .bank-h, .pole2 { grid-column: 1 / -1; }
+  .pole2 { border-top: 1px dashed #5a6168; margin-top: 0.2rem; }
+  .co { font-size: 1.7rem; }
+}
+
+@media print {
+  .lang, #job-form button { display: none !important; }
+  body { background: #fff; }
+  .door { box-shadow: none; margin: 0; }
 }
